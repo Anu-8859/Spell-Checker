@@ -1,0 +1,208 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+.spell-checker-app {
+    background-color: #111827;
+    color: #E5E7EB;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2.5rem 1.25rem;
+    box-sizing: border-box;
+}
+.app-container {
+    width: 100%;
+    max-width: 56rem;
+    background-color: #1F2937;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    border: 1px solid #374151;
+}
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    background: -webkit-linear-gradient(right, #60A5FA, #34D399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.subtitle {
+    font-size: 1.125rem;
+    color: #9CA3AF;
+    margin-bottom: 2rem;
+}
+.input-area {
+    margin-bottom: 1rem;
+}
+.text-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid #4B5563;
+    background-color: #374151;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    resize: vertical;
+}
+.text-input::placeholder {
+    color: #9CA3AF;
+}
+.text-input:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+.check-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    background-color: #2563EB;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.check-button:hover:not(:disabled) {
+    background-color: #3B82F6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.check-button:disabled {
+    background-color: #4B5563;
+    cursor: not-allowed;
+}
+.status-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem;
+    margin-top: 1rem;
+    color: #9CA3AF;
+    font-weight: 500;
+}
+.loader {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 3px solid #4B5563;
+    border-top-color: #3B82F6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.75rem;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.results-container {
+    margin-top: 1.5rem;
+    text-align: left;
+    background-color: #374151;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    min-height: 100px;
+    border: 1px solid #4B5563;
+}
+.checked-text-display {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.misspelled-word {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #F87171;
+    border-bottom: 2px dotted #EF4444;
+    cursor: pointer;
+    position: relative;
+    border-radius: 3px;
+    padding: 2px 0;
+}
+.suggestions-popover {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1F2937;
+    border: 1px solid #4B5563;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    min-width: 150px;
+    padding: 0.5rem;
+}
+.suggestion-item, .no-suggestion-item {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    color: #E5E7EB;
+}
+.suggestion-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.suggestion-item:hover {
+    background-color: #4B5563;
+}
+.no-suggestion-item {
+    font-style: italic;
+    color: #9CA3AF;
+}
+.suggestion-close-btn {
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #9CA3AF;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem;
+}
+.suggestion-close-btn:hover {
+    color: white;
+}
+.voice-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.voice-button:hover {
+  background-color: #388e3c;
+}
+
+.voice-button.listening {
+  background-color: #d32f2f;
+}
+.clear-button {
+  background-color: #f44336;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-button:hover {
+  background-color: #d32f2f;
+}
